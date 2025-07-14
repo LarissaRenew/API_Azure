@@ -4,3 +4,4 @@ requests
 openpyxl
 gunicorn
 office365-rest-python-client
+dotenv
