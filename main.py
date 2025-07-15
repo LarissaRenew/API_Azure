@@ -16,6 +16,14 @@ TENANT_ID = os.getenv("TENANT_ID")
 CLIENT_ID = os.getenv("CLIENT_ID")
 CLIENT_SECRET = os.getenv("CLIENT_SECRET")
 
+# ADICIONE ESTES PRINTS PARA DEPURAR:
+print(f"DEBUG: SHAREPOINT_SITE_URL={SHAREPOINT_SITE_URL}")
+print(f"DEBUG: TENANT_ID={TENANT_ID}")
+print(f"DEBUG: CLIENT_ID={CLIENT_ID}")
+print(f"DEBUG: CLIENT_SECRET={'*' * len(CLIENT_SECRET) if CLIENT_SECRET else 'None'}") # Não printar o segredo real!
+
+
+
 # Adicionando uma verificação básica para garantir que as variáveis estão configuradas
 # Isso pode ajudar a depurar se algo não estiver definido no Render
 if not all([SHAREPOINT_SITE_URL, TENANT_ID, CLIENT_ID, CLIENT_SECRET]):
