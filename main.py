@@ -1,7 +1,7 @@
 import os
 from flask import Flask, jsonify, request
 from office365.runtime.auth.client_credential import ClientCredential
-from office365.sharepoint.client_context import ClientContext
+#from office365.sharepoint.client_context import ClientContext
 from dotenv import load_dotenv # Mantenha para desenvolvimento local, será ignorado no Render
 
 # Carrega variáveis de ambiente do arquivo .env (apenas para desenvolvimento local)
@@ -45,7 +45,9 @@ def read_excel_from_sharepoint():
 
     try:
         # A biblioteca Office365-REST-Python-Client usará estas variáveis para autenticação
-        credential = ClientCredential(CLIENT_ID, CLIENT_SECRET)
+        #credential = ClientCredential(CLIENT_ID, CLIENT_SECRET)
+        #ctx = ClientContext(SHAREPOINT_SITE_URL).with_credentials(credential)
+        credential = ClientCredential(CLIENT_ID, CLIENT_SECRET, tenant_id="491bfc39-ac22-494b-a77b-ffb7fc0073a4") # Passe o tenant_id explicitamente
         ctx = ClientContext(SHAREPOINT_SITE_URL).with_credentials(credential)
 
         target_list = ctx.web.lists.get_by_title(list_name)
